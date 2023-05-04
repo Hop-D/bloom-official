@@ -10,4 +10,5 @@ class CampaignController extends Controller
     protected function index(){
         return view('campaigns');
     }
+
 }

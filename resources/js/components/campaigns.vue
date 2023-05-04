@@ -14,7 +14,7 @@
                     <div v-for="campaign in campaigns" :key="campaign.id" class="col-md-6 my-3">
                     <b-card bg-variant="white" text-variant="dark" class="px-3 py-3"> <h2><strong>{{ campaign.name }}</strong></h2>
                     <b-card-text class="my-5">{{ campaign.desc }}</b-card-text>
-                    <b-button href="/payment" variant="primary">Subscribe</b-button>
+                    <b-button @click="redirect(campaign.id)" variant="primary">Subscribe</b-button>
                     </b-card>
                 </div>
                 </div>
@@ -39,6 +39,15 @@
                     {id: 4, name: "VIP", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},
                 ]
     		}
-    	},
+    	},methods:{
+            redirect(campaignId){
+
+                console.log(campaignId);
+
+                this.$router,push({name: "payments", params: {campaignId: campaignId} });
+
+                //axios.post( 'post' , {campaignId: 1 })
+            }
+        }
     };
 </script>
